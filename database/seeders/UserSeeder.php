@@ -23,5 +23,10 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->roles()->attach(1);
+
+        $users = User::factory()->count(10)->create();
+        foreach ($users as $user){
+            $user->roles()->attach(2);
+        }
     }
 }
